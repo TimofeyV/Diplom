@@ -1,0 +1,35 @@
+{% extends "main/base.html" %} {% load static %} {% block link %}
+<link rel="stylesheet" href="{% static 'main/css/catalog.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/users.css' %}">{% endblock %} {% block title %} {% if category %}{{ category.name }}{% else %}Меню{% endif %} {% endblock %} {% block body %}
+
+<header class="header">
+    <div class="top">
+
+        <nav class="navbar">
+
+            {% for c in categories %} {% if category.slug == c.slug %} {% endif %}
+            </br><button><a href="{{ c.get_absolute_url }}">{{ c.name }} </a></button> {% endfor %}
+
+        </nav>
+    </div>
+</header>
+
+
+
+<div class="catalog-content">
+    <div class="catalog-content">
+        <h1>{% if category %}{{ category.name }}{% else %} Меню{% endif %}</h1>
+    </div>
+    <div class="addproduct">
+        <button class="add-"><a href="{% url 'catalog:add_product' %}">Добавить новый товар</a></button>
+    </div>
+    {% for product in products %}
+    <div class="chapter">
+        <img width="90%" height="300px" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'catalog/img/no_image.png' %}{% endif %}"></a>
+        <h1>{{ product.name }}</h1>
+        <p> {{ product.description|linebreaks }}</p>
+        <button class="login"><p> В корзину:{{ product.price }}₽</p></button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

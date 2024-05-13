@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'main/css/users.css' %}">
+{% endblock %}
+{% block body %}
+<div class="container-login">
+<div class="box-login">
+<form method="POST" novalidate>
+
+		<button><a href="{% url 'logout' %}">Выход</a></button>
+
+
+	{% csrf_token %}
+
+	<h2>Войти</h2>
+	{{form.as_p}}
+	<div class="wrap">
+	<input class="login" type="submit" value="Войти"/></div>
+	<p>Нет аккаунта?<br>
+		 <a href="{%url 'register' %}">Зарегистрироваться</a></p>
+</form>
+</div>
+</div>
+{% endblock %}

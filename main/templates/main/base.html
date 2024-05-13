@@ -1,0 +1,65 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Окинава{% block title %}{% endblock %}</title>
+    {% block link %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link type="image/x-icon" rel="shortcut icon" href="/static/main/img/logo.png">
+    <link type="image/png" sizes="16x16" rel="icon" href="/static/main/img/logo.png">
+    <link type="image/png" sizes="32x32" rel="icon" href="/static/main/img/logo.png">
+    <link type="image/png" sizes="48x48" rel="icon" href="/static/main/img/logo.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="/static/main/img/logo.png">
+    <link type="image/png" sizes="120x120" rel="icon" href="/static/main/img/logo.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <div class="top-header">
+        <button><a href="{% url 'catalog:product_list' %}">Меню</a></button>
+        <button><a href="{% url 'about' %}">О нас</a></button>
+        <button><a href="{% url 'delivery' %}">Доставка</a></button>
+        <button><a href="{% url 'pay' %}">Оплата</a></button>
+        <button><a href="{% url 'contacts' %}">Контакты</a></button>
+        <button><a href="{% url 'login'%}">Войти<i class='bx bx-log-in'></i></a></button>
+    </div>
+<header class="header">
+    <div class="top">
+        <div class="logo">
+            <a href="/" class=""><img src="/static/main/img/Logo.png" alt=""></a>
+        </div>
+        <div class="info">
+            <p>ЯПОНСКАЯ, <br>ИТАЛЬЯНСКАЯ <br> И КИТАЙСКАЯ<br>КУХНИ В КРАСНОДАРЕ </p>
+        </div>
+        <div class="top-contacts">
+            <p>
+                <a href="tel:8(965)471-01-21"><i class='bx bxs-phone'></i>+7 (965) 471-01-21</a><br>
+                <a href="tel:8(952)841-01-21"><i class='bx bxs-phone'></i>+7 (952) 841-01-21</a><br>
+                <a href="mailto:okinawabar@mail.ru"><i class='bx bx-at'></i>okinawabar@mail.ru</a>
+            </p>
+        </div>
+    </div>
+    <div class="navbar">
+
+    </div>
+</header>
+
+
+{% block body %}
+
+{% endblock %}
+<footer class="footer">
+
+</footer>
+{% block js %}
+<script src="/static/main/js/app.js"></script>
+{% endblock %}
+</body>
+</html>
